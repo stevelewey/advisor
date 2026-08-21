@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leadership Advisor — Steve Lewey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2A4A;
+    --navy-soft: #2C3E5C;
+    --gold: #C9A84C;
+    --gold-soft: #DCC077;
+    --cream: #FAF6EF;
+    --parchment: #F0E9D8;
+    --ink: #24304A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'EB Garamond', serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 19px;
+  }
+  h1, h2, h3, .eyebrow, nav a, .btn, .site-footer, .marker { font-family: 'Montserrat', sans-serif; }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  .skip-link { position: absolute; left: -999px; top: 0; background: var(--navy); color: var(--cream); padding: 0.75rem 1.25rem; z-index: 100; }
+  .skip-link:focus { left: 1rem; top: 1rem; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  header.site-header { position: sticky; top: 0; z-index: 10; background: var(--cream); border-bottom: 1px solid rgba(27,42,74,0.12); }
+  .header-inner { max-width: 1100px; margin: 0 auto; padding: 1.1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .brand { font-weight: 700; letter-spacing: 0.02em; color: var(--navy); font-size: 1.05rem; text-decoration: none; }
+  .back-link { text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy-soft); border-bottom: 1px solid transparent; padding-bottom: 2px; transition: border-color 0.2s ease, color 0.2s ease; }
+  .back-link:hover { border-color: var(--gold); color: var(--navy); }
+
+  .hero { max-width: 780px; margin: 0 auto; padding: 5rem 1.5rem 3rem; text-align: center; }
+  .eyebrow { display: inline-block; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 1.4rem; }
+  .hero h1 { font-family: 'EB Garamond', serif; font-style: italic; font-weight: 500; font-size: clamp(2.1rem, 4.5vw, 3rem); color: var(--navy); line-height: 1.2; margin-bottom: 1.3rem; }
+  .hero p.lede { font-size: 1.15rem; color: var(--navy-soft); max-width: 620px; margin: 0 auto; }
+  .hero-divider { width: 46px; height: 2px; background: var(--gold); margin: 2.2rem auto 0; }
+
+  section.intro { max-width: 720px; margin: 0 auto; padding: 1rem 1.5rem 3rem; }
+  section.intro p { color: var(--navy-soft); margin-bottom: 1.1rem; font-size: 1.05rem; }
+  section.intro p:last-child { margin-bottom: 0; }
+
+  /* Who this is for */
+  section.fit { background: var(--parchment); padding: 3.5rem 1.5rem; }
+  .fit .section-inner { max-width: 700px; margin: 0 auto; }
+  .fit h2 { font-family: 'EB Garamond', serif; font-weight: 500; font-size: 1.5rem; color: var(--navy); text-align: center; margin-bottom: 1.8rem; }
+  .fit ul { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
+  .fit li { color: var(--navy-soft); font-size: 1.02rem; padding-left: 1.4rem; position: relative; }
+  .fit li::before { content: "—"; position: absolute; left: 0; color: var(--gold); }
+
+  /* How it works */
+  section.how { max-width: 780px; margin: 0 auto; padding: 3.5rem 1.5rem; }
+  section.how h2 { font-family: 'EB Garamond', serif; font-weight: 500; font-size: 1.5rem; color: var(--navy); text-align: center; margin-bottom: 2rem; }
+  .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+  @media (max-width: 700px) { .how-steps { grid-template-columns: 1fr; } }
+  .how-step .marker { font-size: 0.78rem; color: var(--gold); letter-spacing: 0.1em; font-weight: 600; margin-bottom: 0.5rem; }
+  .how-step h3 { font-family: 'EB Garamond', serif; font-weight: 500; font-size: 1.15rem; color: var(--navy); margin-bottom: 0.5rem; }
+  .how-step p { color: var(--navy-soft); font-size: 0.98rem; }
+
+  .offers { max-width: 900px; margin: 0 auto; padding: 1rem 1.5rem 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; }
+  @media (max-width: 700px) { .offers { grid-template-columns: 1fr; } }
+
+  .offer-card { background: #fff; border: 1px solid rgba(27,42,74,0.10); border-radius: 2px; padding: 2.2rem 1.9rem; display: flex; flex-direction: column; gap: 0.9rem; }
+  .offer-card h2 { font-family: 'EB Garamond', serif; font-weight: 500; font-size: 1.5rem; color: var(--navy); }
+  .offer-card .price { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; color: var(--gold); text-transform: uppercase; }
+  .offer-card p { color: var(--navy-soft); font-size: 1rem; flex-grow: 1; }
+
+  .credentials { max-width: 720px; margin: 0 auto; padding: 0 1.5rem 3.5rem; text-align: center; }
+  .credentials p { color: var(--navy-soft); font-size: 0.92rem; font-style: italic; }
+
+  section.faq { padding: 3.5rem 1.5rem; background: var(--parchment); }
+  .faq .section-inner { max-width: 680px; margin: 0 auto; }
+  .faq h2 { font-family: 'EB Garamond', serif; font-weight: 500; font-size: 1.5rem; color: var(--navy); text-align: center; margin-bottom: 2rem; }
+  .faq-item { margin-bottom: 1.6rem; }
+  .faq-item:last-child { margin-bottom: 0; }
+  .faq-item h3 { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
+  .faq-item p { color: var(--navy-soft); font-size: 1rem; }
+
+  section.application { background: var(--cream); padding: 4.5rem 1.5rem; }
+  .application .section-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+  .application h2 { font-family: 'EB Garamond', serif; font-style: italic; font-weight: 500; color: var(--navy); font-size: clamp(1.7rem, 3.5vw, 2.2rem); margin-bottom: 0.9rem; }
+  .application p.sub { color: var(--navy-soft); font-size: 1rem; margin-bottom: 2rem; }
+
+  /* Google Form embed */
+  .form-embed-wrap {
+    background: #fff;
+    border: 1px solid rgba(27,42,74,0.12);
+    border-radius: 2px;
+    padding: 0.75rem;
+  }
+  .form-embed-wrap iframe {
+    width: 100%;
+    height: 1500px;
+    border: 0;
+    display: block;
+  }
+  @media (max-width: 500px) {
+    .form-embed-wrap iframe { height: 1700px; }
+  }
+
+  .btn { display: inline-block; text-decoration: none; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.9rem 1.8rem; border-radius: 2px; text-align: center; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+  .btn-primary { background: var(--navy); color: var(--cream); border: 1px solid var(--navy); }
+  .btn-primary:hover { background: var(--navy-soft); }
+
+  footer.site-footer { background: var(--navy); color: rgba(250,246,239,0.65); padding: 2.4rem 1.5rem; text-align: center; font-size: 0.78rem; }
+  footer.site-footer a { color: var(--gold-soft); text-decoration: none; }
+  footer.site-footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="https://stevelewey.com">STEVE LEWEY</a>
+    <a class="back-link" href="https://stevelewey.com">&larr; Back to stevelewey.com</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <p class="eyebrow">IV. Leadership Advisor</p>
+    <h1>A Confidential Thinking Partner for the Weight You're Carrying</h1>
+    <p class="lede">
+      Some decisions are too important to make alone, and too personal to
+      bring to just anyone. This is a confidential place to think clearly,
+      be honest, and get wisdom you can actually use — before Monday.
+    </p>
+    <div class="hero-divider"></div>
+  </section>
+
+  <section class="intro">
+    <p>
+      I work with business owners, leaders, planters, and shepherds who
+      are navigating something big — a hard decision, a season of
+      transition, a team or ministry that's outgrown their current tools
+      for leading it. This isn't therapy, and it isn't consulting in the
+      traditional sense. It's an advisory relationship, a confidential
+      thinking partnership, drawn from Proverbs and tested across
+      decades in the real work of marketplace and ministry.
+    </p>
+    <p>
+      There are two ways to work together, depending on what you need
+      right now.
+    </p>
+  </section>
+
+  <section class="fit">
+    <div class="section-inner">
+      <h2>Who This Is For</h2>
+      <ul>
+        <li>You lead or own a business, ministry, or team, and people depend on the decisions you make.</li>
+        <li>You're facing something — a decision, a transition, a conflict — that's hard to talk through with employees, customers, or family.</li>
+        <li>You want a sounding board with real experience, not a script or a certification.</li>
+        <li>You want your faith and your leadership to actually integrate, not sit in separate compartments.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="how">
+    <h2>What Happens in a Session</h2>
+    <div class="how-steps">
+      <div class="how-step">
+        <p class="marker">BEFORE</p>
+        <h3>You come with the real issue</h3>
+        <p>No agenda-building or small talk to wade through — we start with whatever's actually weighing on you.</p>
+      </div>
+      <div class="how-step">
+        <p class="marker">DURING</p>
+        <h3>We think it through together</h3>
+        <p>The issue gets examined from more than one angle, with honest pushback where it's needed, not just agreement.</p>
+      </div>
+      <div class="how-step">
+        <p class="marker">AFTER</p>
+        <h3>You leave with clarity</h3>
+        <p>Every session ends with the core issue named plainly and a decision or next step you can actually act on.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="offers">
+    <div class="offer-card">
+      <h2>Ongoing Advisory</h2>
+      <p class="price">$750&ndash;1,000 / month</p>
+      <p>
+        A standing monthly rhythm for leaders who want a consistent
+        thinking partner through an extended season — recurring
+        sessions, direct access between calls, and continuity as
+        things develop.
+      </p>
+    </div>
+    <div class="offer-card">
+      <h2>Single Working Session</h2>
+      <p class="price">$225&ndash;325 / session</p>
+      <p>
+        A focused, one-time session for a specific decision or
+        crossroads — when you need clarity now and don't need an
+        ongoing engagement to get it.
+      </p>
+    </div>
+  </section>
+
+  <div class="credentials">
+    <p>Maxwell Leadership Founding Partner &middot; CBMC Trusted Advisors Facilitator &middot; MA, Biblical Studies</p>
+  </div>
+
+  <section class="faq">
+    <div class="section-inner">
+      <h2>A Few Things Worth Knowing</h2>
+      <div class="faq-item">
+        <h3>How do sessions get booked?</h3>
+        <p>
+          Once your application is approved, booking is confirmed with a
+          deposit. This holds your time and reflects that both of us are
+          serious about the work ahead.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>What's the cancellation policy?</h3>
+        <p>
+          Life happens, so reschedule with as much notice as you can.
+          Deposits are non-refundable for cancellations made within
+          24 hours of a scheduled session or call.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>How long does it take to hear back after I apply?</h3>
+        <p>
+          I read every application personally. Expect a reply within a
+          few business days, either way.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="application">
+    <div class="section-inner">
+      <h2>Apply to Work Together</h2>
+      <p class="sub">
+        A short application helps me understand where you are and
+        whether this is the right fit — I'll follow up personally
+        once I've read it. Please note: confirmed sessions require a
+        deposit, non-refundable within 24 hours of your scheduled time.
+      </p>
+
+      <div class="form-embed-wrap">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSesWuKDo7d9zG73yh-U_7RtdRdVREFQrKOyM9cjYh33b86XRg/viewform?embedded=true"
+          title="Leadership Advisor Application"
+          loading="lazy">
+          Loading…
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; <span id="year"></span> Steve Lewey &middot; Light Based Leadership &middot; Piedmont, North Carolina</p>
+  <p style="margin-top:0.5rem;"><a href="https://stevelewey.com">stevelewey.com</a></p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
