@@ -3,278 +3,1373 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Leadership Advisor — Steve Lewey</title>
+
+<title>Thinking Partner Advisory | Steve Lewey</title>
+
+<meta name="description" content="Confidential Thinking Partner Advisory for leaders, business owners, professionals, and thoughtful people facing important decisions, transitions, responsibilities, and questions.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-  :root {
-    --navy: #1B2A4A;
-    --navy-soft: #2C3E5C;
-    --gold: #C9A84C;
-    --gold-soft: #DCC077;
-    --cream: #FAF6EF;
-    --parchment: #F0E9D8;
-    --ink: #24304A;
+
+:root {
+  --navy: #1B2A4A;
+  --navy-soft: #2C3E5C;
+  --gold: #C9A84C;
+  --gold-soft: #DCC077;
+  --cream: #FAF6EF;
+  --parchment: #F0E9D8;
+  --ink: #24304A;
+  --muted: #667085;
+  --white: #FFFFFF;
+  --border: #E5E0D6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+/* ------------------------------
+   HEADER
+------------------------------ */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(27, 42, 74, 0.97);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.35);
+  backdrop-filter: blur(8px);
+}
+
+.header-inner {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  text-decoration: none;
+  color: var(--white);
+  font-family: 'EB Garamond', serif;
+  font-size: 1.55rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.logo span {
+  color: var(--gold);
+}
+
+.back-link {
+  color: var(--gold-soft);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.back-link:hover {
+  color: var(--white);
+}
+
+/* ------------------------------
+   HERO
+------------------------------ */
+
+.hero {
+  background:
+    linear-gradient(
+      135deg,
+      var(--navy) 0%,
+      var(--navy-soft) 100%
+    );
+  color: var(--white);
+  padding: 95px 0 90px;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--gold-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 1.02;
+  font-weight: 500;
+  max-width: 900px;
+  margin: 0 auto 28px;
+}
+
+.hero h1 span {
+  color: var(--gold-soft);
+}
+
+.hero-lede {
+  max-width: 760px;
+  margin: 0 auto 35px;
+  font-size: 1.12rem;
+  color: #F4F1E9;
+  line-height: 1.8;
+}
+
+.hero-note {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #D8DDE6;
+  font-size: 0.92rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 14px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+}
+
+.button-primary {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+.button-primary:hover {
+  background: var(--gold-soft);
+  transform: translateY(-1px);
+}
+
+.button-secondary {
+  border: 1px solid rgba(255,255,255,0.4);
+  color: var(--white);
+  margin-left: 10px;
+}
+
+.button-secondary:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* ------------------------------
+   GENERAL SECTIONS
+------------------------------ */
+
+section {
+  padding: 80px 0;
+}
+
+.section-light {
+  background: var(--white);
+}
+
+.section-cream {
+  background: var(--cream);
+}
+
+.section-dark {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 45px;
+}
+
+.section-heading .eyebrow {
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.section-heading h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(2.3rem, 4vw, 3.4rem);
+  line-height: 1.1;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 18px;
+}
+
+.section-dark .section-heading h2 {
+  color: var(--white);
+}
+
+.section-heading p {
+  color: var(--muted);
+}
+
+.section-dark .section-heading p {
+  color: #D7DCE5;
+}
+
+/* ------------------------------
+   INTRO
+------------------------------ */
+
+.intro {
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro p {
+  font-size: 1.08rem;
+  color: #4E5969;
+  margin-bottom: 20px;
+}
+
+.intro strong {
+  color: var(--navy);
+}
+
+/* ------------------------------
+   FIT
+------------------------------ */
+
+.fit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.fit-item {
+  background: var(--white);
+  padding: 25px;
+  border-left: 4px solid var(--gold);
+  box-shadow: 0 5px 18px rgba(27, 42, 74, 0.06);
+}
+
+.fit-item h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.35rem;
+  color: var(--navy);
+  margin-bottom: 7px;
+}
+
+.fit-item p {
+  color: #596273;
+  font-size: 0.94rem;
+}
+
+/* ------------------------------
+   PROCESS
+------------------------------ */
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.process-card {
+  background: var(--white);
+  padding: 32px 28px;
+  border-top: 3px solid var(--gold);
+}
+
+.process-number {
+  font-size: 0.78rem;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+
+.process-card h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.7rem;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.process-card p {
+  color: #596273;
+  font-size: 0.94rem;
+}
+
+/* ------------------------------
+   OFFERS
+------------------------------ */
+
+.offers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.offer-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 40px 34px;
+  position: relative;
+}
+
+.offer-card.featured {
+  border: 2px solid var(--gold);
+}
+
+.offer-label {
+  display: inline-block;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.offer-card h3 {
+  font-family: 'EB Garamond', serif;
+  color: var(--navy);
+  font-size: 2rem;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-family: 'EB Garamond', serif;
+  color: var(--navy);
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.price span {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.offer-description {
+  color: #596273;
+  margin-bottom: 22px;
+}
+
+.offer-card ul {
+  list-style: none;
+  margin: 0 0 28px;
+}
+
+.offer-card li {
+  position: relative;
+  padding-left: 23px;
+  margin-bottom: 12px;
+  color: #4E5969;
+  font-size: 0.93rem;
+}
+
+.offer-card li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.offer-note {
+  font-size: 0.82rem;
+  color: #7A8493;
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+}
+
+/* ------------------------------
+   FOUNDATION
+------------------------------ */
+
+.foundation {
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.foundation h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.foundation h2 span {
+  color: var(--gold-soft);
+}
+
+.foundation p {
+  color: #D8DDE6;
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+}
+
+.proverbs-note {
+  max-width: 700px;
+  margin: 30px auto 0;
+  padding: 25px;
+  border: 1px solid rgba(201,168,76,0.35);
+  color: #E8E3D8;
+  font-size: 0.95rem;
+}
+
+/* ------------------------------
+   FAQ
+------------------------------ */
+
+.faq {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 25px 5px;
+}
+
+.faq-item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.faq-item h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.45rem;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.faq-item p {
+  color: #596273;
+  font-size: 0.94rem;
+}
+
+/* ------------------------------
+   CTA
+------------------------------ */
+
+.cta {
+  background:
+    linear-gradient(
+      135deg,
+      var(--navy) 0%,
+      var(--navy-soft) 100%
+    );
+  color: var(--white);
+  text-align: center;
+}
+
+.cta h2 {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.05;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+
+.cta p {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  color: #D8DDE6;
+}
+
+.contact-note {
+  margin-top: 22px;
+  font-size: 0.88rem;
+  color: #C6CBD5;
+}
+
+.contact-note a {
+  color: var(--gold-soft);
+  text-decoration: none;
+}
+
+.contact-note a:hover {
+  color: var(--white);
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+
+footer {
+  background: #111D34;
+  color: #AEB6C4;
+  padding: 30px 0;
+  text-align: center;
+  font-size: 0.82rem;
+}
+
+footer strong {
+  color: var(--white);
+}
+
+.footer-links {
+  margin-top: 8px;
+}
+
+.footer-links a {
+  color: var(--gold-soft);
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+.footer-links a:hover {
+  color: var(--white);
+}
+
+/* ------------------------------
+   MOBILE
+------------------------------ */
+
+@media (max-width: 760px) {
+
+  .container {
+    width: min(100% - 30px, 1120px);
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'EB Garamond', serif;
-    background: var(--cream);
-    color: var(--ink);
-    line-height: 1.65;
-    font-size: 19px;
+
+  .header-inner {
+    min-height: 64px;
   }
-  h1, h2, h3, .eyebrow, nav a, .btn, .site-footer, .marker { font-family: 'Montserrat', sans-serif; }
-  a { color: inherit; }
-  img { max-width: 100%; display: block; }
 
-  .skip-link { position: absolute; left: -999px; top: 0; background: var(--navy); color: var(--cream); padding: 0.75rem 1.25rem; z-index: 100; }
-  .skip-link:focus { left: 1rem; top: 1rem; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-
-  header.site-header { position: sticky; top: 0; z-index: 10; background: var(--cream); border-bottom: 1px solid rgba(27,42,74,0.12); }
-  .header-inner { max-width: 1100px; margin: 0 auto; padding: 1.1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
-  .brand { font-weight: 700; letter-spacing: 0.02em; color: var(--navy); font-size: 1.05rem; text-decoration: none; }
-  .back-link { text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy-soft); border-bottom: 1px solid transparent; padding-bottom: 2px; transition: border-color 0.2s ease, color 0.2s ease; }
-  .back-link:hover { border-color: var(--gold); color: var(--navy); }
-
-  .hero { max-width: 780px; margin: 0 auto; padding: 5rem 1.5rem 3rem; text-align: center; }
-  .eyebrow { display: inline-block; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 1.4rem; }
-  .hero h1 { font-family: 'EB Garamond', serif; font-style: italic; font-weight: 500; font-size: clamp(2.1rem, 4.5vw, 3rem); color: var(--navy); line-height: 1.2; margin-bottom: 1.3rem; }
-  .hero p.lede { font-size: 1.15rem; color: var(--navy-soft); max-width: 620px; margin: 0 auto; }
-  .hero-divider { width: 46px; height: 2px; background: var(--gold); margin: 2.2rem auto 0; }
-
-  section.intro { max-width: 720px; margin: 0 auto; padding: 1rem 1.5rem 3rem; }
-  section.intro p { color: var(--navy-soft); margin-bottom: 1.1rem; font-size: 1.05rem; }
-  section.intro p:last-child { margin-bottom: 0; }
-
-  /* Who this is for */
-  section.fit { background: var(--parchment); padding: 3.5rem 1.5rem; }
-  .fit .section-inner { max-width: 700px; margin: 0 auto; }
-  .fit h2 { font-family: 'EB Garamond', serif; font-weight: 500; font-size: 1.5rem; color: var(--navy); text-align: center; margin-bottom: 1.8rem; }
-  .fit ul { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
-  .fit li { color: var(--navy-soft); font-size: 1.02rem; padding-left: 1.4rem; position: relative; }
-  .fit li::before { content: "—"; position: absolute; left: 0; color: var(--gold); }
-
-  /* How it works */
-  section.how { max-width: 780px; margin: 0 auto; padding: 3.5rem 1.5rem; }
-  section.how h2 { font-family: 'EB Garamond', serif; font-weight: 500; font-size: 1.5rem; color: var(--navy); text-align: center; margin-bottom: 2rem; }
-  .how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
-  @media (max-width: 700px) { .how-steps { grid-template-columns: 1fr; } }
-  .how-step .marker { font-size: 0.78rem; color: var(--gold); letter-spacing: 0.1em; font-weight: 600; margin-bottom: 0.5rem; }
-  .how-step h3 { font-family: 'EB Garamond', serif; font-weight: 500; font-size: 1.15rem; color: var(--navy); margin-bottom: 0.5rem; }
-  .how-step p { color: var(--navy-soft); font-size: 0.98rem; }
-
-  .offers { max-width: 900px; margin: 0 auto; padding: 1rem 1.5rem 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; }
-  @media (max-width: 700px) { .offers { grid-template-columns: 1fr; } }
-
-  .offer-card { background: #fff; border: 1px solid rgba(27,42,74,0.10); border-radius: 2px; padding: 2.2rem 1.9rem; display: flex; flex-direction: column; gap: 0.9rem; }
-  .offer-card h2 { font-family: 'EB Garamond', serif; font-weight: 500; font-size: 1.5rem; color: var(--navy); }
-  .offer-card .price { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; color: var(--gold); text-transform: uppercase; }
-  .offer-card p { color: var(--navy-soft); font-size: 1rem; flex-grow: 1; }
-
-  .credentials { max-width: 720px; margin: 0 auto; padding: 0 1.5rem 3.5rem; text-align: center; }
-  .credentials p { color: var(--navy-soft); font-size: 0.92rem; font-style: italic; }
-
-  section.faq { padding: 3.5rem 1.5rem; background: var(--parchment); }
-  .faq .section-inner { max-width: 680px; margin: 0 auto; }
-  .faq h2 { font-family: 'EB Garamond', serif; font-weight: 500; font-size: 1.5rem; color: var(--navy); text-align: center; margin-bottom: 2rem; }
-  .faq-item { margin-bottom: 1.6rem; }
-  .faq-item:last-child { margin-bottom: 0; }
-  .faq-item h3 { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
-  .faq-item p { color: var(--navy-soft); font-size: 1rem; }
-
-  section.application { background: var(--cream); padding: 4.5rem 1.5rem; }
-  .application .section-inner { max-width: 640px; margin: 0 auto; text-align: center; }
-  .application h2 { font-family: 'EB Garamond', serif; font-style: italic; font-weight: 500; color: var(--navy); font-size: clamp(1.7rem, 3.5vw, 2.2rem); margin-bottom: 0.9rem; }
-  .application p.sub { color: var(--navy-soft); font-size: 1rem; margin-bottom: 2rem; }
-
-  /* Google Form embed */
-  .form-embed-wrap {
-    background: #fff;
-    border: 1px solid rgba(27,42,74,0.12);
-    border-radius: 2px;
-    padding: 0.75rem;
+  .logo {
+    font-size: 1.3rem;
   }
-  .form-embed-wrap iframe {
-    width: 100%;
-    height: 1500px;
-    border: 0;
+
+  .hero {
+    padding: 70px 0 65px;
+  }
+
+  .hero h1 {
+    font-size: 2.9rem;
+  }
+
+  .button {
     display: block;
-  }
-  @media (max-width: 500px) {
-    .form-embed-wrap iframe { height: 1700px; }
+    width: 100%;
+    max-width: 300px;
+    margin: 10px auto;
   }
 
-  .btn { display: inline-block; text-decoration: none; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.9rem 1.8rem; border-radius: 2px; text-align: center; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
-  .btn-primary { background: var(--navy); color: var(--cream); border: 1px solid var(--navy); }
-  .btn-primary:hover { background: var(--navy-soft); }
+  .button-secondary {
+    margin-left: auto;
+  }
 
-  footer.site-footer { background: var(--navy); color: rgba(250,246,239,0.65); padding: 2.4rem 1.5rem; text-align: center; font-size: 0.78rem; }
-  footer.site-footer a { color: var(--gold-soft); text-decoration: none; }
-  footer.site-footer a:hover { text-decoration: underline; }
+  section {
+    padding: 60px 0;
+  }
+
+  .fit-grid,
+  .process-grid,
+  .offers {
+    grid-template-columns: 1fr;
+  }
+
+  .offer-card {
+    padding: 32px 25px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  body {
+    font-size: 15px;
+  }
+
+  .back-link {
+    font-size: 0.75rem;
+  }
+
+  .hero h1 {
+    font-size: 2.45rem;
+  }
+
+  .hero-lede {
+    font-size: 1rem;
+  }
+
+  .section-heading h2 {
+    font-size: 2.35rem;
+  }
+
+}
+
 </style>
 </head>
+
 <body>
 
-<a class="skip-link" href="#main">Skip to content</a>
+<!-- ==============================
+     HEADER
+================================ -->
 
-<header class="site-header">
-  <div class="header-inner">
-    <a class="brand" href="https://stevelewey.com">STEVE LEWEY</a>
-    <a class="back-link" href="https://stevelewey.com">&larr; Back to stevelewey.com</a>
+<header>
+
+  <div class="container header-inner">
+
+    <a class="logo" href="https://stevelewey.com/">
+      STEVE <span>LEWEY</span>
+    </a>
+
+    <a class="back-link" href="https://stevelewey.com/">
+      ← Back to SteveLewey.com
+    </a>
+
   </div>
+
 </header>
 
-<main id="main">
 
-  <section class="hero">
-    <p class="eyebrow">IV. Leadership Advisor</p>
-    <h1>A Confidential Thinking Partner for the Weight You're Carrying</h1>
-    <p class="lede">
-      Some decisions are too important to make alone, and too personal to
-      bring to just anyone. This is a confidential place to think clearly,
-      be honest, and get wisdom you can actually use — before Monday.
+<!-- ==============================
+     HERO
+================================ -->
+
+<section class="hero">
+
+  <div class="container">
+
+    <div class="eyebrow">
+      Thinking Partner Advisory
+    </div>
+
+    <h1>
+      You Don't Have to Think Through
+      <span>Important Decisions Alone.</span>
+    </h1>
+
+    <p class="hero-lede">
+
+      A confidential thinking partnership for leaders, business owners,
+      professionals, and thoughtful people facing important decisions,
+      transitions, responsibilities, or questions.
+
     </p>
-    <div class="hero-divider"></div>
-  </section>
 
-  <section class="intro">
-    <p>
-      I work with business owners, leaders, planters, and shepherds who
-      are navigating something big — a hard decision, a season of
-      transition, a team or ministry that's outgrown their current tools
-      for leading it. This isn't therapy, and it isn't consulting in the
-      traditional sense. It's an advisory relationship, a confidential
-      thinking partnership, drawn from Proverbs and tested across
-      decades in the real work of marketplace and ministry.
+    <a
+      class="button button-primary"
+      href="https://calendly.com/steve-lewey/30min"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Schedule a 30-Minute Conversation
+    </a>
+
+    <a
+      class="button button-secondary"
+      href="#how-it-works"
+    >
+      See How It Works
+    </a>
+
+    <p class="hero-note">
+      The introductory conversation is simply a chance to talk,
+      see whether the relationship makes sense, and determine what
+      kind of support would actually be useful.
     </p>
-    <p>
-      There are two ways to work together, depending on what you need
-      right now.
-    </p>
-  </section>
 
-  <section class="fit">
-    <div class="section-inner">
-      <h2>Who This Is For</h2>
-      <ul>
-        <li>You lead or own a business, ministry, or team, and people depend on the decisions you make.</li>
-        <li>You're facing something — a decision, a transition, a conflict — that's hard to talk through with employees, customers, or family.</li>
-        <li>You want a sounding board with real experience, not a script or a certification.</li>
-        <li>You want your faith and your leadership to actually integrate, not sit in separate compartments.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="how">
-    <h2>What Happens in a Session</h2>
-    <div class="how-steps">
-      <div class="how-step">
-        <p class="marker">BEFORE</p>
-        <h3>You come with the real issue</h3>
-        <p>No agenda-building or small talk to wade through — we start with whatever's actually weighing on you.</p>
-      </div>
-      <div class="how-step">
-        <p class="marker">DURING</p>
-        <h3>We think it through together</h3>
-        <p>The issue gets examined from more than one angle, with honest pushback where it's needed, not just agreement.</p>
-      </div>
-      <div class="how-step">
-        <p class="marker">AFTER</p>
-        <h3>You leave with clarity</h3>
-        <p>Every session ends with the core issue named plainly and a decision or next step you can actually act on.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="offers">
-    <div class="offer-card">
-      <h2>Ongoing Advisory</h2>
-      <p class="price">$750&ndash;1,000 / month</p>
-      <p>
-        A standing monthly rhythm for leaders who want a consistent
-        thinking partner through an extended season — recurring
-        sessions, direct access between calls, and continuity as
-        things develop.
-      </p>
-    </div>
-    <div class="offer-card">
-      <h2>Single Working Session</h2>
-      <p class="price">$225&ndash;325 / session</p>
-      <p>
-        A focused, one-time session for a specific decision or
-        crossroads — when you need clarity now and don't need an
-        ongoing engagement to get it.
-      </p>
-    </div>
-  </section>
-
-  <div class="credentials">
-    <p>Maxwell Leadership Founding Partner &middot; CBMC Trusted Advisors Facilitator &middot; MA, Biblical Studies</p>
   </div>
 
-  <section class="faq">
-    <div class="section-inner">
-      <h2>A Few Things Worth Knowing</h2>
-      <div class="faq-item">
-        <h3>How do sessions get booked?</h3>
-        <p>
-          Once your application is approved, booking is confirmed with a
-          deposit. This holds your time and reflects that both of us are
-          serious about the work ahead.
-        </p>
-      </div>
-      <div class="faq-item">
-        <h3>What's the cancellation policy?</h3>
-        <p>
-          Life happens, so reschedule with as much notice as you can.
-          Deposits are non-refundable for cancellations made within
-          24 hours of a scheduled session or call.
-        </p>
-      </div>
-      <div class="faq-item">
-        <h3>How long does it take to hear back after I apply?</h3>
-        <p>
-          I read every application personally. Expect a reply within a
-          few business days, either way.
-        </p>
-      </div>
-    </div>
-  </section>
+</section>
 
-  <section class="application">
-    <div class="section-inner">
-      <h2>Apply to Work Together</h2>
-      <p class="sub">
-        A short application helps me understand where you are and
-        whether this is the right fit — I'll follow up personally
-        once I've read it. Please note: confirmed sessions require a
-        deposit, non-refundable within 24 hours of your scheduled time.
+
+<!-- ==============================
+     INTRODUCTION
+================================ -->
+
+<section class="section-light">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div class="eyebrow">
+        A Different Kind of Support
+      </div>
+
+      <h2>
+        Sometimes You Don't Need Another Expert.
+      </h2>
+
+      <p>
+        You need someone who can help you think.
       </p>
 
-      <div class="form-embed-wrap">
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSesWuKDo7d9zG73yh-U_7RtdRdVREFQrKOyM9cjYh33b86XRg/viewform?embedded=true"
-          title="Leadership Advisor Application"
-          loading="lazy">
-          Loading…
-        </iframe>
-      </div>
     </div>
-  </section>
 
-</main>
 
-<footer class="site-footer">
-  <p>&copy; <span id="year"></span> Steve Lewey &middot; Light Based Leadership &middot; Piedmont, North Carolina</p>
-  <p style="margin-top:0.5rem;"><a href="https://stevelewey.com">stevelewey.com</a></p>
+    <div class="intro">
+
+      <p>
+        Important decisions rarely arrive with complete information.
+        They come with competing priorities, uncertainty, responsibility,
+        relationships, and consequences.
+      </p>
+
+      <p>
+        A Thinking Partner isn't there to take the decision away from you.
+        The purpose is to help you slow down enough to see clearly,
+        ask better questions, examine assumptions, consider what you may
+        be overlooking, and determine your own next step.
+      </p>
+
+      <p>
+        My role is to listen carefully, ask thoughtful questions,
+        offer perspective when useful, and help you work through
+        what is actually in front of you.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     WHO IT IS FOR
+================================ -->
+
+<section class="section-cream">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div class="eyebrow">
+        Who This Is For
+      </div>
+
+      <h2>
+        For People Carrying Something That Matters.
+      </h2>
+
+      <p>
+        You don't have to fit a particular title or profession.
+        The common denominator is that something important deserves
+        thoughtful attention.
+      </p>
+
+    </div>
+
+
+    <div class="fit-grid">
+
+      <div class="fit-item">
+
+        <h3>Important Decisions</h3>
+
+        <p>
+          You're facing a business, career, financial, leadership,
+          relationship, or personal decision and want to think it through
+          before acting.
+        </p>
+
+      </div>
+
+
+      <div class="fit-item">
+
+        <h3>Transitions</h3>
+
+        <p>
+          You're entering a new season and need clarity about what
+          to carry forward, what to release, and where to focus next.
+        </p>
+
+      </div>
+
+
+      <div class="fit-item">
+
+        <h3>Leadership Responsibility</h3>
+
+        <p>
+          Other people depend on your judgment, and you want a place
+          where you can think honestly without having to perform.
+        </p>
+
+      </div>
+
+
+      <div class="fit-item">
+
+        <h3>A Missing Sounding Board</h3>
+
+        <p>
+          You have people around you, but you don't have someone with
+          whom you can regularly work through the decisions that carry
+          the most weight.
+        </p>
+
+      </div>
+
+
+      <div class="fit-item">
+
+        <h3>Clarity Before Action</h3>
+
+        <p>
+          You don't necessarily need more information. You need help
+          sorting what you already know and determining what matters most.
+        </p>
+
+      </div>
+
+
+      <div class="fit-item">
+
+        <h3>A Thoughtful Next Chapter</h3>
+
+        <p>
+          You're reconsidering how you want to spend your time,
+          experience, abilities, or influence in the next season of life.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     HOW IT WORKS
+================================ -->
+
+<section id="how-it-works" class="section-light">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div class="eyebrow">
+        The Conversation
+      </div>
+
+      <h2>
+        Bring the Real Issue.
+      </h2>
+
+      <p>
+        There is no presentation you need to prepare and no formula
+        you need to follow.
+      </p>
+
+    </div>
+
+
+    <div class="process-grid">
+
+      <div class="process-card">
+
+        <div class="process-number">
+          01 · BRING
+        </div>
+
+        <h3>
+          Bring What You're Carrying
+        </h3>
+
+        <p>
+          Start with the actual issue — the decision, tension,
+          opportunity, question, transition, or responsibility
+          that's occupying your attention.
+        </p>
+
+      </div>
+
+
+      <div class="process-card">
+
+        <div class="process-number">
+          02 · EXPLORE
+        </div>
+
+        <h3>
+          Explore It Together
+        </h3>
+
+        <p>
+          Through careful listening and thoughtful questions,
+          we examine assumptions, competing priorities, possibilities,
+          risks, and what may not yet be visible.
+        </p>
+
+      </div>
+
+
+      <div class="process-card">
+
+        <div class="process-number">
+          03 · MOVE
+        </div>
+
+        <h3>
+          Leave With Clarity
+        </h3>
+
+        <p>
+          The goal isn't to manufacture certainty. It's to help you
+          understand the situation more clearly and determine the
+          next step that makes sense to you.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     OFFERS
+================================ -->
+
+<section class="section-cream">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div class="eyebrow">
+        Ways to Work Together
+      </div>
+
+      <h2>
+        Start With the Level of Support You Need.
+      </h2>
+
+      <p>
+        Begin with one conversation. If ongoing perspective would be
+        useful, we can continue from there.
+      </p>
+
+    </div>
+
+
+    <div class="offers">
+
+
+      <!-- SINGLE SESSION -->
+
+      <div class="offer-card featured">
+
+        <div class="offer-label">
+          A Good Place to Begin
+        </div>
+
+        <h3>
+          Thinking Partner Session
+        </h3>
+
+        <div class="price">
+          $275 <span>· 60 minutes</span>
+        </div>
+
+        <p class="offer-description">
+          One private, focused conversation around an important
+          decision, question, transition, or responsibility.
+        </p>
+
+        <ul>
+
+          <li>
+            One private 60-minute session
+          </li>
+
+          <li>
+            Focus on one primary issue or a closely related set of questions
+          </li>
+
+          <li>
+            Thoughtful questions and perspective
+          </li>
+
+          <li>
+            Help identifying what may be missing, unclear, or assumed
+          </li>
+
+          <li>
+            Greater clarity about possible next steps
+          </li>
+
+        </ul>
+
+        <a
+          class="button button-primary"
+          href="mailto:Steve@stevelewey.com?subject=Thinking%20Partner%20Session"
+        >
+          Contact Steve
+        </a>
+
+        <p class="offer-note">
+          The 30-minute introductory conversation is complimentary.
+          The $275 fee applies to the subsequent 60-minute Thinking
+          Partner Session.
+        </p>
+
+      </div>
+
+
+      <!-- ONGOING -->
+
+      <div class="offer-card">
+
+        <div class="offer-label">
+          Ongoing Perspective
+        </div>
+
+        <h3>
+          Ongoing Thinking Partnership
+        </h3>
+
+        <div class="price">
+          $850 <span>· month</span>
+        </div>
+
+        <p class="offer-description">
+          A continuing relationship for people who value having a
+          trusted place to think through important matters over time.
+        </p>
+
+        <ul>
+
+          <li>
+            Two private 60-minute sessions each month
+          </li>
+
+          <li>
+            Continuity from one conversation to the next
+          </li>
+
+          <li>
+            Context and perspective built over time
+          </li>
+
+          <li>
+            Reasonable email or voice-note access between sessions
+          </li>
+
+          <li>
+            A confidential place to work through significant decisions
+          </li>
+
+        </ul>
+
+        <a
+          class="button button-primary"
+          href="mailto:Steve@stevelewey.com?subject=Ongoing%20Thinking%20Partnership"
+        >
+          Start a Conversation
+        </a>
+
+        <p class="offer-note">
+          This is a defined advisory relationship, not unlimited
+          on-demand access. Boundaries and communication expectations
+          are established at the beginning of the relationship.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     ANCIENT INTELLIGENCE
+================================ -->
+
+<section class="section-dark">
+
+  <div class="container">
+
+    <div class="foundation">
+
+      <div class="eyebrow">
+        The Foundation
+      </div>
+
+      <h2>
+        Rooted in <span>Ancient Wisdom.</span><br>
+        Applied to Real Life.
+      </h2>
+
+      <p>
+        The Thinking Partner approach is part of a larger framework
+        called <strong>Ancient Intelligence</strong> — the practice of
+        drawing on enduring wisdom to think more clearly about modern
+        decisions, leadership, business, relationships, and life.
+      </p>
+
+      <p>
+        A significant part of that wisdom comes from the book of Proverbs,
+        which has been a source of study and reflection for me for decades.
+      </p>
+
+      <div class="proverbs-note">
+
+        You do not have to share my faith or background to benefit
+        from a thoughtful conversation. The biblical foundation informs
+        the questions and perspective I bring; the conversation remains
+        focused on the real situation in front of you.
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     FAQ
+================================ -->
+
+<section class="section-light">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <div class="eyebrow">
+        Questions
+      </div>
+
+      <h2>
+        A Few Things You May Be Wondering
+      </h2>
+
+    </div>
+
+
+    <div class="faq">
+
+
+      <div class="faq-item">
+
+        <h3>
+          Is this coaching?
+        </h3>
+
+        <p>
+          There is some overlap with coaching, but Thinking Partner
+          Advisory is intentionally broader. The conversation may involve
+          questions, reflection, perspective, decision-making, or simply
+          sorting through a complicated situation. The goal is not to
+          put you through a coaching process; it is to help you think well.
+        </p>
+
+      </div>
+
+
+      <div class="faq-item">
+
+        <h3>
+          Is this consulting?
+        </h3>
+
+        <p>
+          Not in the traditional sense. I am not primarily coming in
+          to analyze your business, create a strategy document, or tell
+          you how to run it. When my experience or perspective is relevant,
+          I will offer it. But the starting point is listening and thinking
+          with you.
+        </p>
+
+      </div>
+
+
+      <div class="faq-item">
+
+        <h3>
+          Do I need to be a Christian?
+        </h3>
+
+        <p>
+          No. My perspective is deeply informed by Scripture, particularly
+          Proverbs, but you do not need to share my beliefs to have a useful
+          conversation. If faith is relevant to what you're working through,
+          we can discuss it openly. If it isn't, we can focus on the issue
+          itself.
+        </p>
+
+      </div>
+
+
+      <div class="faq-item">
+
+        <h3>
+          What kinds of issues can we discuss?
+        </h3>
+
+        <p>
+          Business and career decisions, leadership challenges, transitions,
+          relationships, competing responsibilities, questions about your
+          next season, opportunities you're evaluating, or situations where
+          you simply need a thoughtful person to help you see more clearly.
+        </p>
+
+      </div>
+
+
+      <div class="faq-item">
+
+        <h3>
+          What happens after the introductory conversation?
+        </h3>
+
+        <p>
+          Nothing is assumed. We'll determine whether a Thinking Partner
+          relationship makes sense and, if so, whether a single session
+          or ongoing partnership is appropriate. You decide whether you
+          want to move forward.
+        </p>
+
+      </div>
+
+
+      <div class="faq-item">
+
+        <h3>
+          Is this therapy, legal advice, financial advice, or professional consulting?
+        </h3>
+
+        <p>
+          No. Thinking Partner Advisory is a confidential conversation
+          focused on reflection, perspective, decision-making, and practical
+          wisdom. When a situation requires specialized professional advice,
+          the appropriate specialist should be involved.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     FINAL CTA
+================================ -->
+
+<section class="cta">
+
+  <div class="container">
+
+    <h2>
+      Have Something You're<br>
+      Trying to Think Through?
+    </h2>
+
+    <p>
+      Start with a 30-minute conversation. Tell me what you're dealing with,
+      ask whatever questions you have, and we'll see whether having a
+      Thinking Partner would actually be useful.
+    </p>
+
+    <a
+      class="button button-primary"
+      href="https://calendly.com/steve-lewey/30min"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Schedule Your 30-Minute Conversation
+    </a>
+
+    <div class="contact-note">
+
+      Prefer email?
+
+      <a href="mailto:Steve@stevelewey.com">
+        Steve@stevelewey.com
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     FOOTER
+================================ -->
+
+<footer>
+
+  <div class="container">
+
+    <p>
+      <strong>Steve Lewey</strong> · Light Based Leadership
+    </p>
+
+    <p class="footer-links">
+
+      <a href="https://stevelewey.com/">
+        Home
+      </a>
+
+      <a href="https://stevelewey.github.io/proverbs-foundation-assessment/">
+        Ancient Intelligence Audit
+      </a>
+
+      <a href="https://stevelewey.github.io/proverbs-kings/">
+        Ancient Intelligence
+      </a>
+
+    </p>
+
+    <p style="margin-top:12px;">
+      Piedmont, North Carolina
+    </p>
+
+  </div>
+
 </footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
 
 </body>
 </html>
